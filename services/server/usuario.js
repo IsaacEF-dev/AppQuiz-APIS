@@ -22,6 +22,15 @@ module.exports=(app)=>{
     })
 
     app.post("/registro/google",(req,res)=>{
+        const data={nombre,apellidos,correo,pass}=req.body;
+        
+        usuariocontroller.loginGoogle(data)
+        .then(result=>{
+            console.log(result);
+            res.status(result.status).json(result.response)})
+        .catch(error=>{
+            console.log("errorsote wey")
+            res.status(404).json(error)});
         
     })
 

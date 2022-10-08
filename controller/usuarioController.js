@@ -8,6 +8,11 @@ class UsuarioController{
     loginUser(data){
         return usuarioprocess.loginUser(data);
     }
+
+    loginGoogle(data){
+       
+        return usuarioprocess.loginGoogle(data);
+    }
 }
 
 module.exports=UsuarioController;

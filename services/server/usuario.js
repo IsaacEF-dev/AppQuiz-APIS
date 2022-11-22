@@ -26,7 +26,7 @@ module.exports=(app)=>{
         
         usuariocontroller.loginGoogle(data)
         .then(result=>{
-            console.log(result);
+           
             res.status(result.status).json(result.response)})
         .catch(error=>{
             console.log("errorsote wey")
@@ -40,10 +40,11 @@ module.exports=(app)=>{
         !validation.tryOut({correo},validation.regularExp().correos,50)){
             res.status(404).json({code:20,data:"S/R",message:"Parametros no validos"})
         }
-
+        
         usuariocontroller.loginUser(data)
         .then(result=>res.status(result.status).json(result.response))
-        .catch(error=>res.status(400).json(error));
+        .catch(error=>{
+            res.status(400).json(error)});
     })
 
     app.get("/home",validateToken,(req,res)=>{

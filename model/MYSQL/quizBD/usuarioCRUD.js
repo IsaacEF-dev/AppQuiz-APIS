@@ -17,8 +17,8 @@ class UsuarioCRUD{
 
     loginUser(data){
         return new Promise((resolve,reject)=>{
-            const query=`select pass from usuario where correo=?`;
-            console.log(data)
+            const query=`select pass,nombre,id from usuario where correo=?`;
+            
             this.connection.query(query,[data.correo],(error,result)=>{
                 if(error){return reject(error)};
                 resolve(result);

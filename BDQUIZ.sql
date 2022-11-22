@@ -10,7 +10,7 @@ create table usuario(
 );
 
 create table categoria(
-	id int not null primary key,
+	id int not null auto_increment primary key,
 	nombre varchar(50)
 );
 
@@ -18,7 +18,9 @@ create table cuestionario(
 	id int not null auto_increment primary key,
 	nombre varchar(50) not null,
 	id_categoria int not null,
-	foreign key (id_categoria) references categoria(id)
+    id_usuario int not null,
+	foreign key (id_categoria) references categoria(id),
+    foreign key (id_usuario) references usuario(id)
 );
 
 create table pregunta(
